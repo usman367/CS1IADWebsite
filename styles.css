@@ -1,0 +1,38 @@
+#start{
+    height: 400px;
+    background-color: #4299f5;
+    text-align: center;
+    color: white;
+}
+
+#start h2 {
+    text-align: center;
+    padding-top: 100px;
+}
+
+#start p{
+    padding-top: 20px;
+}
+
+main{
+    background-color: #eee;
+}
+
+.events {
+     /* margin-left: 100px; */
+    /*margin-right: 60px; */
+    /* margin: 0px 50px; */
+    /* flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+    padding: 0px 70px;
+    
+}
+
+#sportEvents {
+    /*background-color: lightblue;*/
+    color: black;
+    padding: 60px;
+    text-align: center;
+} 
