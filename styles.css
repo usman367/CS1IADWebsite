@@ -1,6 +1,7 @@
 #start{
     height: 400px;
     background-color: #4299f5;
+    /* background-image: url("https://www.google.com/search?q=aston+university&rlz=1C1KDEC_en-GBGB920GB920&sxsrf=ALeKk00IDDWN06zCksX9EJ7aOhlKSxly7g:1615731186328&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiMgafb-6_vAhX1snEKHdmzAuYQ_AUoA3oECA4QBQ&biw=1280&bih=610#imgrc=YgspyW3cU1B0TM"); */
     text-align: center;
     color: white;
 }
@@ -36,3 +37,12 @@ main{
     padding: 60px;
     text-align: center;
 } 
+
+/* footer{
+    background: #444;
+    padding: 30px;
+}
+
+.copy{
+    padding-top: 30px;
+} */

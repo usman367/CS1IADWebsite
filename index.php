@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
+    <!-- Bootstrap stylesheeet: -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <title>Document</title>
 </head>
@@ -13,14 +14,41 @@
     <!-- "navbar-toggleable" means it will be a drop down toggleable navbar -->
     <!-- "navbar-inverse" to change the colour of the links-->
     
-    <nav class="navbar navbar-toggleable-md bg-inverse navbar-inverse">
+    <!-- <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link3</a>
+                </li>
+                </ul>
+            </div>
+            </nav>
+        </div> -->
+
+        <nav class="navbar navbar-toggleable-md bg-inverse navbar-inverse">
         <div class="container">
             <!-- For smaller screens, make a menu bar-->
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="col-auto">
             <div class="collapse navbar-collapse" id="mainNav">
-                <div class="navbar-nav">
+                <div class="navbar-nav w-100">
                     <!-- The home button is set to active -->
                     <a class="nav-item nav-link active" href="#">Home</a>
                     <a class="nav-item nav-link" href="#">Sports</a>
@@ -28,8 +56,9 @@
                     <a class="nav-item nav-link" href="#">Others</a>
                 </div>
             </div>
+            </div>
         </div>
-    </nav>
+        </nav>
 
         <Section id="start">
             <h2> Find Your Interest </h2>
@@ -45,9 +74,9 @@
                         <div class="card">
                             <img class="card-img-top img-fluid" src="images/indoorFootball.jpg">
                             <div class="card-block">
-                                <h3 class="card-title"> Indoor Football Event </h3>
+                                <h3 class="card-title"> Indoor Football Tournament </h3>
                                 <p class="card-text"> The football society has arranged an Indoor Football tournamment for all Students of the University. Whether you are an Undergraduate or a Postgraduate, every student is welcome to take part.</p>
-                                <p>Event Date: 10-05-21</p>
+                                <p>Event Date: 05-05-21</p>
                                 <a href="#" class="btn btn-primary">Book Now</a>
                             </div>
                         </div>
@@ -75,7 +104,7 @@
                             <img class="card-img-top img-fluid" src="images/art.jpg">
                             <div class="card-block">
                                 <h3 class="card-title"> Art Exhibition </h3>
-                                <p class="card-text">Aston’s Universit's art collection is as wide as it is impressive. From the world’s largest collection of pre-Raphaelite artwork to progressive installations from exciting new artists.  Aston University is home to some fantastic museums, galleries and studios that shouldn't be missed on a vist to the city.</p>
+                                <p class="card-text">Aston’s Universit's art collection is as wide as it is impressive. From the world’s largest collection of pre-Raphaelite artwork to progressive installations from exciting new artists.  Aston University is home to a fantastic Art gallery that shouldn't be missed.</p>
                                 <p>Event Date: 10-05-21</p>
                                 <a href="#" class="btn btn-primary">Book Now</a>
                             </div>
@@ -86,8 +115,7 @@
                             <img class="card-img-top img-fluid" src="images/art.jpg">
                             <div class="card-block">
                                 <h3 class="card-title"> Art Exhibition </h3>
-                                <p class="card-text">Aston’s Universit's art collection is as wide as it is impressive. From the world’s largest collection of pre-Raphaelite artwork to progressive installations from exciting new artists.  Aston University is home to some fantastic museums, galleries and studios that shouldn't be missed on a vist to the city.</p>
-                                <p>Event Date: 10-05-21</p>
+                                <p class="card-text">Aston’s Universit's art collection is as wide as it is impressive. From the world’s largest collection of pre-Raphaelite artwork to progressive installations from exciting new artists.  Aston University is home to a fantastic Art gallery that shouldn't be missed.</p>                                <p>Event Date: 10-05-21</p>
                                 <a href="#" class="btn btn-primary">Book Now</a>
                             </div>
                         </div>
@@ -123,10 +151,13 @@
                     </div>
                 </div>
             </div>
+
+            <br><br>
         </main>
 
-        
-        
+        <?php
+			include("footer.php");
+		?>
     
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
