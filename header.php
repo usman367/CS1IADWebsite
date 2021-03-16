@@ -33,6 +33,26 @@
                 </div>
               </nav>
         </div>
+
+        <nav class="navbar navbar-toggleable-md bg-inverse navbar-inverse">
+        <div class="container">
+            <!-- For smaller screens, make a menu bar-->
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="col-auto">
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="navbar-nav w-100">
+                    <!-- The home button is set to active -->
+                    <a class="nav-item nav-link active" href="#">Home</a>
+                    <a class="nav-item nav-link" href="#">Sports</a>
+                    <a class="nav-item nav-link" href="#">Culture</a>
+                    <a class="nav-item nav-link" href="#">Others</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </nav>
     </header>
     
     <!-- jQuery first, then Tether, then Bootstrap JS. -->

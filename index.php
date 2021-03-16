@@ -11,54 +11,31 @@
 </head>
 <body>
     <!-- navbar -->
-    <!-- "navbar-toggleable" means it will be a drop down toggleable navbar -->
+    <!-- "navbar-toggler" means it will be a drop down toggleable navbar -->
     <!-- "navbar-inverse" to change the colour of the links-->
-    
-    <!-- <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-inverse bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Aston Events</a>
+            <!-- For smaller screens, make a menu bar-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav2" >
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link3</a>
-                </li>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav2">
+            <!-- Alist for the items on the right -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Sports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Culture</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Others</a>
+                    </li>
                 </ul>
             </div>
-            </nav>
-        </div> -->
-
-        <nav class="navbar navbar-toggleable-md bg-inverse navbar-inverse">
-        <div class="container">
-            <!-- For smaller screens, make a menu bar-->
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="col-auto">
-            <div class="collapse navbar-collapse" id="mainNav">
-                <div class="navbar-nav w-100">
-                    <!-- The home button is set to active -->
-                    <a class="nav-item nav-link active" href="#">Home</a>
-                    <a class="nav-item nav-link" href="#">Sports</a>
-                    <a class="nav-item nav-link" href="#">Culture</a>
-                    <a class="nav-item nav-link" href="#">Others</a>
-                </div>
-            </div>
-            </div>
         </div>
-        </nav>
+    </nav>
 
         <Section id="start">
             <h2> Find Your Interest </h2>
