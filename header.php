@@ -8,7 +8,34 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
+
+    <!-- navbar -->
+    <!-- "navbar-toggler" means it will be a drop down toggleable navbar -->
+    <!-- "navbar-inverse" to change the colour of the links-->
+    <nav class="navbar navbar-expand-lg navbar-inverse bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">Aston Events</a>
+            <!-- For smaller screens, make a menu bar-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav2" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav2">
+            <!-- Alist for the items on the right -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="sports.php">Sports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Culture</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Others</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- <header>
         <div class="container">
             <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,14 +63,14 @@
 
         <nav class="navbar navbar-toggleable-md bg-inverse navbar-inverse">
         <div class="container">
-            <!-- For smaller screens, make a menu bar-->
+            
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="col-auto">
             <div class="collapse navbar-collapse" id="mainNav">
                 <div class="navbar-nav w-100">
-                    <!-- The home button is set to active -->
+                    
                     <a class="nav-item nav-link active" href="#">Home</a>
                     <a class="nav-item nav-link" href="#">Sports</a>
                     <a class="nav-item nav-link" href="#">Culture</a>
@@ -53,7 +80,7 @@
             </div>
         </div>
         </nav>
-    </header>
+    </header> -->
     
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
