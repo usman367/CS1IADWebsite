@@ -44,19 +44,9 @@
         </section>
 
         <section id="booking">
-            <h2>Book Now!</h2>
+            <h2>Book Now with just one click!</h2>
             <form id="booking">
-            <input type="email"
-               placeholder="Email"
-               name="email"
-               required
-               pattern=".+(\.ac\.uk)"
-               title="Please enter your aston email address."/>
-            <input type="name"
-              placeholder="Name"
-              name="name"
-              required />
-              <button class="main__btn"><a href="#">Submit</a></button>
+              <button class="main__btn"><a href="#">Book Now</a></button>
           </form>
         </section>
     </main>

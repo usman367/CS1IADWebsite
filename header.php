@@ -24,6 +24,9 @@
             <!-- Alist for the items on the right -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link" href="signin.php">Sign-in</a>
+                    </li>
+                    <li class="nav-item">
                         <!--href link for when sports is pressed it will take you to the sports section-->
                         <!--"index.php" added before the "#sports" to take you to the main page first-->
                         <a class="nav-link" aria-current="page" href="index.php#sports">Sports</a>
