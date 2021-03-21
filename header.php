@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <title>Document</title>
 </head>
@@ -12,7 +13,7 @@
     <!-- navbar -->
     <!-- "navbar-toggler" means it will be a drop down toggleable navbar -->
     <!-- "navbar-inverse" to change the colour of the links-->
-    <nav class="navbar navbar-expand-lg navbar-inverse bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-inverse bg-info">
         <div class="container">
             <a class="navbar-brand" href="index.php">Aston Events</a>
             <!-- For smaller screens, make a menu bar-->
@@ -23,18 +24,22 @@
             <!-- Alist for the items on the right -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="sports.php">Sports</a>
+                        <!--href link for when sports is pressed it will take you to the sports section-->
+                        <!--"index.php" added before the "#sports" to take you to the main page first-->
+                        <a class="nav-link" aria-current="page" href="index.php#sports">Sports</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Culture</a>
+                        <a class="nav-link" href="index.php#culture">Culture</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Others</a>
+                        <a class="nav-link" href="index.php#others">Others</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+
     <!-- <header>
         <div class="container">
             <nav class="navbar navbar-toggleable-md navbar-light bg-faded">

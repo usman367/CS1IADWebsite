@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="styles.css" />
     <!-- Bootstrap stylesheeet: -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!--For the slideshow -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Document</title>
 </head>
 <body>
+        <header>
         <?php
             include("header.php");
         ?>
+        </header>
 
         <Section id="start">
             <h2> Find Your Interest </h2>
@@ -21,91 +24,104 @@
         </section>
 
         <main>
-            <br><br>
-            <div class="events">
-                <h2 id="sportEvents"> Upcoming Sporting Events </h2>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <img class="card-img-top img-fluid" src="images/indoorFootball.jpg">
-                            <div class="card-block">
-                                <h3 class="card-title"> Indoor Football Tournament </h3>
-                                <p class="card-text"> The football society has arranged an Indoor Football tournamment for all Students of the University. Whether you are an Undergraduate or a Postgraduate, every student is welcome to take part.</p>
-                                <p>Event Date: 05-05-21</p>
-                                <a href="#" class="btn btn-primary">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <img class="card-img-top img-fluid" src="images/indoorFootball.jpg">
-                            <div class="card-block">
-                            <h3 class="card-title">Indoor Football Tournament</h3>
-                                <p class="card-text">The football society has arranged an Indoor Football tournamment for all Students of the University. Whether you are an Undergraduate or a Postgraduate, every student is welcome to take part.</p>
-                                <p>Event Date: 05-05-21</p>
-                                <a href="#" class="btn btn-primary">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <br><br>
-            <div class="events">
-                <h2 id="sportEvents"> Explore Culture </h2>
-                <div class="row">
-                <div class="col-sm-6">
-                        <div class="card">
-                            <img class="card-img-top img-fluid" src="images/art.jpg">
-                            <div class="card-block">
-                                <h3 class="card-title"> Art Exhibition </h3>
-                                <p class="card-text">Aston’s Universit's art collection is as wide as it is impressive. From the world’s largest collection of pre-Raphaelite artwork to progressive installations from exciting new artists.  Aston University is home to a fantastic Art gallery that shouldn't be missed.</p>
-                                <p>Event Date: 10-05-21</p>
-                                <a href="#" class="btn btn-primary">Book Now</a>
+
+            <section id="sports">
+                <div class="events">
+                    <h2 id="sportEvents"> Upcoming Sporting Events </h2>
+                    <div class="row">
+                        <!-- Always let the cards take up 6 columns, even when the screen size is small (A grid has 12 columns in bootsstrap)-->
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <!--Place the image at the top and take up the whole card-->
+                                <img class="card-img-top img-fluid" src="images/indoorFootball3.jpg">
+                                <div class="card-block">
+                                    <h3 class="card-title"> 5-a-side Football Tournament </h3>
+                                    <p class="card-text"> The football society has arranged an Indoor Football tournamment for all Students of the University. Whether you are an Undergraduate or a Postgraduate, every student is welcome to take part.</p>
+                                    <p>Event Date: 05-05-21</p>
+                                    <!--Button for the link to its page-->
+                                    <a href="football.php" class="btn btn-primary">More Details</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <img class="card-img-top img-fluid" src="images/art.jpg">
-                            <div class="card-block">
-                                <h3 class="card-title"> Art Exhibition </h3>
-                                <p class="card-text">Aston’s Universit's art collection is as wide as it is impressive. From the world’s largest collection of pre-Raphaelite artwork to progressive installations from exciting new artists.  Aston University is home to a fantastic Art gallery that shouldn't be missed.</p>                                <p>Event Date: 10-05-21</p>
-                                <a href="#" class="btn btn-primary">Book Now</a>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="images/indoorFootball3.jpg">
+                                <div class="card-block">
+                                <h3 class="card-title">5-a-side Football Tournament</h3>
+                                    <p class="card-text">The football society has arranged an Indoor Football tournamment for all Students of the University. Whether you are an Undergraduate or a Postgraduate, every student is welcome to take part.</p>
+                                    <p>Event Date: 05-05-21</p>
+                                    <a href="football.php" class="btn btn-primary">More Details</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <br><br>
-            <div class="events">
-                <h2 id="sportEvents"> Other Upcoming Events </h2>
-                <div class="row">
+
+            <section id="culture">
+                <div class="events">
+                    <h2 id="sportEvents"> Explore Culture </h2>
+                    <div class="row">
                     <div class="col-sm-6">
-                        <div class="card">
-                            <img class="card-img-top img-fluid" src="images/talk.jpg">
-                            <div class="card-block">
-                                <h3 class="card-title">Live Talk</h3>
-                                <p class="card-text">John Smith delivers a fascinating talk about microbiology. The speaker has 15 years of reaserch experience, and has previously given a TED talk.</p>
-                                <p>Event Date: 15-05-21</p>
-                                <a href="#" class="btn btn-primary">Book Now</a>
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="images/art.jpg">
+                                <div class="card-block">
+                                    <h3 class="card-title"> Art Exhibition </h3>
+                                    <p class="card-text">Aston’s Universit's art collection is as wide as it is impressive. From the world’s largest collection of pre-Raphaelite artwork to progressive installations from exciting new artists.  Aston University is home to a fantastic Art gallery that shouldn't be missed.</p>
+                                    <p>Event Date: 10-05-21</p>
+                                    <a href="art.php" class="btn btn-primary">More Details</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <img class="card-img-top img-fluid" src="images/talk.jpg">
-                            <div class="card-block">
-                                <h3 class="card-title">Live Talk</h3>
-                                <p class="card-text">John Smith delivers a fascinating talk about microbiology. The speaker has 15 years of reaserch experience, and has previously given a TED talk.</p>
-                                <p>Event Date: 15-05-21</p>
-                                <a href="#" class="btn btn-primary">Book Now</a>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="images/art.jpg">
+                                <div class="card-block">
+                                    <h3 class="card-title"> Art Exhibition </h3>
+                                    <p class="card-text">Aston’s Universit's art collection is as wide as it is impressive. From the world’s largest collection of pre-Raphaelite artwork to progressive installations from exciting new artists.  Aston University is home to a fantastic Art gallery that shouldn't be missed.</p>                                <p>Event Date: 10-05-21</p>
+                                    <a href="art.php" class="btn btn-primary">More Details</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <br><br>
+
+            <section id="others">
+                <div class="events">
+                    <h2 id="sportEvents"> Other Upcoming Events </h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="images/talk.jpg">
+                                <div class="card-block">
+                                    <h3 class="card-title">Live Talk</h3>
+                                    <p class="card-text">John Smith delivers a fascinating talk about microbiology. The speaker has 15 years of reaserch experience, and has previously given a TED talk.</p>
+                                    <p>Event Date: 15-05-21</p>
+                                    <a href="talk.php" class="btn btn-primary">More Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="images/talk.jpg">
+                                <div class="card-block">
+                                    <h3 class="card-title">Live Talk</h3>
+                                    <p class="card-text">John Smith delivers a fascinating talk about microbiology. The speaker has 15 years of reaserch experience, and has previously given a TED talk.</p>
+                                    <p>Event Date: 15-05-21</p>
+                                    <a href="talk.php" class="btn btn-primary">More Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <br><br>
         </main>
