@@ -1,46 +1,44 @@
 <?php
-    session_start();
-    // $email = $_SESSION['email'];
-    // $name = $_SESSION['name'];
-    // echo $email;
-    // echo $name;
+   session_start();
+//    $email = $_SESSION['email'];
+//    $name = $_SESSION['name'];
+//    echo $email;
+//    echo $name;
 
-    //If they've pressed the book now button, check if they hav logged-in
-    if(isset($_POST["book"])){
-        if (!isset($_SESSION['email'])){
-            //If not then take them to the sign-in page
-            header("location:signin.php");  
-            //exit();
-        }
-        $emai = $_SESSION['email'];
-        $name = $_SESSION['name'];
-        echo $email;
-        echo $name;
+   //If they've pressed the book now button, check if they hav logged-in
+   if(isset($_POST["booked"])){
+    //    if (!isset($_SESSION['email'])){
+    //        //If not then take them to the sign-in page
+    //        header("location:signin.php");  
+    //        //exit();
+    //    }
+       $email = $_SESSION['email'];
+       $name = $_SESSION['name'];
+       $sport = 
+    //    echo $email;
+    //    echo $name;
 
-        //Connect to the database
-        require_once('connectdb.php');
+       //Connect to the database
+       require_once('connectdb.php');
 
-        try{
-            $sth=$db->prepare("insert into userinfo values(default,?,?)");
-            $sth->execute(array($email, $name));
-            echo "Congratulations you have successfully booked this event";
+       try{
+           $sth=$db->prepare("insert into userinfo values(default,?,?,?)");
+           $sth->execute(array($email, $name, "Football"));
+           echo "Congratulations you have successfully booked this event";
 
-        }catch (PDOException $ex) {
-                    
-            ?>
+       }catch (PDOException $ex) {
+        echo "Sorry, a database error occurred! <br>";
+        echo "Error details: <em>". $ex->getMessage()."</em>";   
+           ?>
 
-           <p>Sorry 2, a database error occurred. Please try again.</p>
-           <p>(Error details: <?= $ex->getMessage() ?>)</p>
+          <p>Sorry 2, a database error occurred. Please try again.</p>
+          <p>(Error details: <?= $ex->getMessage() ?>)</p>
 
-       <?php
-           }
-
-   
-
-        
+      <?php
+          }
 
 
-    }
+   }
 
 
 ?>
@@ -93,11 +91,13 @@
 
         <section id="booking">
             <h2>Book Now with just one click!</h2>
-            <form id="booking">
-              <!-- <button class="main__btn"><a >Book Now</a></button>
-              <input type="hidden" name="booked" value="true"/> -->
-              <input type="submit" value="Book Now" class="main__btn" name="book"/>
-            <input type="hidden" name="booked" value="true"/>
+            <form id="booking" method = "post" action="football.php">
+                <button class="main__btn"><a >Book Now</a></button>
+                <!-- <input type="hidden" name="booked" value="true"/>  -->
+                <!-- <input type="submit" value="Register" />  -->
+	            <input type="hidden" name="booked" value="true"/>
+            <!-- <input type="submit" name="book" value="Book Now" />   -->
+
 
           </form>
         </section>
