@@ -28,6 +28,9 @@
         require_once("connectdb.php");
 
         session_start();
+        //Set the email and name variable for the sessions to the data the user enetered
+        $_SESSION["email"] = $_POST["email"]; 
+        $_SESSION["name"] = $_POST["name"]; 
         header("Location:index.php");
      }
 

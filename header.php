@@ -37,6 +37,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php#others">Others</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signout.php">Sign Out</a>
+                    </li>
                 </ul>
             </div>
         </div>

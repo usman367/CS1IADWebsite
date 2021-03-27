@@ -1,15 +1,21 @@
 <?php
     session_start();
+    // $email = $_SESSION['email'];
+    // $name = $_SESSION['name'];
+    // echo $email;
+    // echo $name;
 
     //If they've pressed the book now button, check if they hav logged-in
-    if(isset($_POST['booked'])){
+    if(isset($_POST["book"])){
         if (!isset($_SESSION['email'])){
             //If not then take them to the sign-in page
-            header("Location: signin.php");
-            exit();
+            header("location:signin.php");  
+            //exit();
         }
         $emai = $_SESSION['email'];
         $name = $_SESSION['name'];
+        echo $email;
+        echo $name;
 
         //Connect to the database
         require_once('connectdb.php');
@@ -88,8 +94,11 @@
         <section id="booking">
             <h2>Book Now with just one click!</h2>
             <form id="booking">
-              <button class="main__btn"><a >Book Now</a></button>
-              <input type="hidden" name="booked" value="true"/>
+              <!-- <button class="main__btn"><a >Book Now</a></button>
+              <input type="hidden" name="booked" value="true"/> -->
+              <input type="submit" value="Book Now" class="main__btn" name="book"/>
+            <input type="hidden" name="booked" value="true"/>
+
           </form>
         </section>
     </main>

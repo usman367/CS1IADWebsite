@@ -3,7 +3,7 @@
     //database connection
 
     $db_host = 'localhost';
-    $db_name = 'astonEvents';
+    $db_name = 'astonevents';
     $username = 'root';
     $password = '';
 
