@@ -1,3 +1,45 @@
+<?php
+    session_start();
+
+    //If they've pressed the book now button, check if they hav logged-in
+    if(isset($_POST['booked'])){
+        if (!isset($_SESSION['email'])){
+            //If not then take them to the sign-in page
+            header("Location: signin.php");
+            exit();
+        }
+        $emai = $_SESSION['email'];
+        $name = $_SESSION['name'];
+
+        //Connect to the database
+        require_once('connectdb.php');
+
+        try{
+            $sth=$db->prepare("insert into userinfo values(default,?,?)");
+            $sth->execute(array($email, $name));
+            echo "Congratulations you have successfully booked this event";
+
+        }catch (PDOException $ex) {
+                    
+            ?>
+
+           <p>Sorry 2, a database error occurred. Please try again.</p>
+           <p>(Error details: <?= $ex->getMessage() ?>)</p>
+
+       <?php
+           }
+
+   
+
+        
+
+
+    }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +88,8 @@
         <section id="booking">
             <h2>Book Now with just one click!</h2>
             <form id="booking">
-              <button class="main__btn"><a href="#">Book Now</a></button>
+              <button class="main__btn"><a >Book Now</a></button>
+              <input type="hidden" name="booked" value="true"/>
           </form>
         </section>
     </main>
