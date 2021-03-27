@@ -1,3 +1,45 @@
+<?php
+   session_start();
+
+   //If they've pressed the book now button, check if they have logged-in
+   if(isset($_POST["booked"])){
+       //If they have not signed in then relocate them to the sign-in page
+       if (!isset($_SESSION['email'])){
+           //If not then take them to the sign-in page
+           header("location:signin.php");  
+           exit();
+       }
+       //Get the data from 
+       $email = $_SESSION['email'];
+       $name = $_SESSION['name'];
+       $event = "Talk";
+
+       //Connect to the database
+       require_once('connectdb.php');
+
+       try{
+           $sth=$db->prepare("insert into userinfo values(default,?,?,?)");
+           $sth->execute(array($email, $name, $event));
+           header("location:booked.php");
+
+       }catch (PDOException $ex) {
+        echo "Sorry, a database error occurred! <br>";
+        echo "Error details: <em>". $ex->getMessage()."</em>";   
+           ?>
+
+          <p>Sorry 2, a database error occurred. Please try again.</p>
+          <p>(Error details: <?= $ex->getMessage() ?>)</p>
+
+      <?php
+          }
+
+
+   }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +66,9 @@
     <main>
         <section id="event-details">
             <p>Aston Sports Hall</p>
-            <p>5th March<p>
-            <p>12 pm</p>
-            <p>Contact details: johnsmith@aston.ac.uk</p>
+            <p>15th March<p>
+            <p>3 pm</p>
+            <p>Contact details: brad@aston.ac.uk</p>
         </section>
 
         <section id="extra-info">
@@ -39,24 +81,16 @@
             </div>
             <div class="benefit">
                 <h4>More Details</h4>
-                <p>Please bring your own Astro Turf trainers and appropriate kit to wear. Refreshments will be available on-site.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
             </div>
         </section>
 
         <section id="booking">
-            <h2>Book Now!</h2>
-            <form id="booking">
-            <input type="email"
-               placeholder="Email"
-               name="email"
-               required
-               pattern=".+(\.ac\.uk)"
-               title="Please enter your aston email address."/>
-            <input type="name"
-              placeholder="Name"
-              name="name"
-              required />
-              <button class="main__btn"><a href="#">Submit</a></button>
+            <h2>Book Now with just one click!</h2>
+            <form id="booking" method = "post" action="talk.php">
+                <button class="main__btn"><a>Book Now</a></button>
+	            <input type="hidden" name="booked" value="true"/>
+
           </form>
         </section>
     </main>

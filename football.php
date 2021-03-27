@@ -5,16 +5,18 @@
 //    echo $email;
 //    echo $name;
 
-   //If they've pressed the book now button, check if they hav logged-in
+   //If they've pressed the book now button, check if they have logged-in
    if(isset($_POST["booked"])){
-    //    if (!isset($_SESSION['email'])){
-    //        //If not then take them to the sign-in page
-    //        header("location:signin.php");  
-    //        //exit();
-    //    }
+       //If they have not signed in then relocate them to the sign-in page
+       if (!isset($_SESSION['email'])){
+           //If not then take them to the sign-in page
+           header("location:signin.php");  
+           exit();
+       }
+       //Get the data from 
        $email = $_SESSION['email'];
        $name = $_SESSION['name'];
-       $sport = 
+       $event = "Indoor Football";
     //    echo $email;
     //    echo $name;
 
@@ -23,8 +25,9 @@
 
        try{
            $sth=$db->prepare("insert into userinfo values(default,?,?,?)");
-           $sth->execute(array($email, $name, "Football"));
-           echo "Congratulations you have successfully booked this event";
+           $sth->execute(array($email, $name, $event));
+           header("location:booked.php");
+           //echo "Congratulations you have successfully booked this event";
 
        }catch (PDOException $ex) {
         echo "Sorry, a database error occurred! <br>";
@@ -92,12 +95,8 @@
         <section id="booking">
             <h2>Book Now with just one click!</h2>
             <form id="booking" method = "post" action="football.php">
-                <button class="main__btn"><a >Book Now</a></button>
-                <!-- <input type="hidden" name="booked" value="true"/>  -->
-                <!-- <input type="submit" value="Register" />  -->
+                <button class="main__btn"><a>Book Now</a></button>
 	            <input type="hidden" name="booked" value="true"/>
-            <!-- <input type="submit" name="book" value="Book Now" />   -->
-
 
           </form>
         </section>
