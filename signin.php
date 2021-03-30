@@ -15,23 +15,45 @@
         }
 
         //If they havent entered the email adress then send an appropriate error
-        if(empty($_POST["name"])){
-            $nameError = "<p>Please enter your name</p>";
-            echo $nameError;
+        if(empty($_POST["password"])){
+            $passError = "<p>Please enter your Password</p>";
+            echo $passError;
         }else{
-            $name = $_POST["name"];
-            // if (!preg_match('^[a-zA-Z]+$', $name)){
-            //     echo "<p>Please enter a valid name</p>";
-            // }
+            $password = $_POST["password"];
         }
 
         require_once("connectdb.php");
 
-        session_start();
+        try{
+            $query = "SELECT * FROM userdetails WHERE email = :email AND password = :password";  
+                $statement = $db->prepare($query);  
+                $statement->execute(  
+                     array(  
+                          'email'     =>     $_POST["email"],  
+                          'password'     =>     $_POST["password"]  
+                     )  
+                );  
+                $count = $statement->rowCount();  
+                if($count > 0)  
+                {  
+                    session_start();
+                     $_SESSION["email"] = $_POST["email"];
+                     $_SESSION["password"] = $_POST["password"];  
+                     header("location:index.php");  
+                }  
+                else  
+                {  
+                     $message = '<label>Wrong Data</label>';  
+                }  
+        }catch(PDOException $error) {  
+             $message = $error->getMessage();  
+        }  
+
+        // session_start();
         //Set the email and name variable for the sessions to the data the user enetered
-        $_SESSION["email"] = $_POST["email"]; 
-        $_SESSION["name"] = $_POST["name"]; 
-        header("Location:index.php");
+        // $_SESSION["email"] = $_POST["email"]; 
+        // $_SESSION["name"] = $_POST["name"]; 
+        // header("Location:index.php");
      }
 
 
@@ -45,7 +67,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signin.css"/>
+    <link rel="stylesheet" href="userdetails.css"/>
     <title>Document</title>
 </head>
 <body>
@@ -60,7 +82,8 @@
             <h2>Sign-in</h2>
             <form id="signin" method="post" action="signin.php">
             <input type="email" placeholder="Email" name="email" pattern=".+(aston\.ac\.uk)" title="Please enter your aston email address." required/>
-            <input type="name" placeholder="Name" name="name" required/>
+            <input type="password" placeholder="Password" name="password" required/>
+            <!-- <input type="name" placeholder="Name" name="name" required/> -->
             <!-- <button class="main__btn"><a href="#">Sign-in</a></button> -->
             <input type="submit" value="Sign-in" class="main__btn"/>
             <input type="hidden" name="submitted" value="true"/>

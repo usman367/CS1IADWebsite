@@ -5,8 +5,8 @@
     /*Put all the text in the middle*/
     text-align: center;
     /*The colour of the text*/
-    color: black;
-    color: lightseagreen;
+    color: white;
+    /* color: lightseagreen; */
 }
 
 #start h2 {

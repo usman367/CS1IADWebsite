@@ -23,6 +23,9 @@
             <div class="collapse navbar-collapse justify-content-end" id="mainNav2">
             <!-- Alist for the items on the right -->
                 <ul class="navbar-nav">
+                     <li class="nav-item">
+                        <a class="nav-link" href="register.php">Register</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="signin.php">Sign-in</a>
                     </li>

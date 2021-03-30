@@ -1,76 +1,16 @@
-#start{
-    height: 400px;
-    background-image: url("images/indoorFootball.jpg");
-    /*Don't repeat the background image more than once (because the images width is not wide enough for the screen)*/
-    background-repeat:no-repeat;
-    /*Set the width to 100% of the screen size*/
-    background-size: 100% 100%;
-    text-align: center;
-    color: white;
-}
-
-#start h3{
-    padding-top: 250px;
-}
-
-main{
-    /* background-color: #4098a3; */
-    background-color: #eee;
-
-}
-
-#event-details{
-    text-align: center;
-    /* background-color: #de641d; */
-    background-color: #283e51;
-    background: linear-gradient(to right,#4b79a1, #283e51);
-    color: white;
-    padding:50px 0 ;
-    font-size: 20px;
-    font-family: "Lucida Console", "Courier New", monospace;
-}
-
-
-#extra-info{ 
-    /* background-color: #240053;  */
-    /* background-color: #2c3e50;
-    background: linear-gradient(to right,#2980b9, #2c3e50); */
-    color: black;
-     padding: 50px 0; 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#extra-info h2{
-    /* text-align: center; */
-    width: 100%;
-}
-
-.benefit{
-    /* padding-left: 40px; */
-    padding-top: 40px;
-    width: 50%;
-    font-size: 16px;
-    /* text-align: justify; */
-}
-
-#booking {
+#details {
     padding:40px 0px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     /* background-color: #4098a3; */
-     background-color: #2c3e50;
-    background: linear-gradient(to right,#2980b9, #2c3e50);
-    /* background: -webkit-linear-gradient(to right,#4ecdc4, #556270); */
+    background-color: #556270;
+    background: linear-gradient(to right,#4ecdc4, #556270);
     color: white;
     text-align: center;
-    height: 140px;
+    height: 400px;
+    padding-top: 100px;
   }
   
-  #booking input {
+  #details input {
     display: block;
     margin: 0 auto 10px;
   }
@@ -127,6 +67,3 @@ main{
   .main__btn:hover:after {
     width: 100%;
   }
-  
-
-

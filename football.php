@@ -15,10 +15,10 @@
        }
        //Get the data from 
        $email = $_SESSION['email'];
-       $name = $_SESSION['name'];
+       $password = $_SESSION['password'];
        $event = "Indoor Football";
-    //    echo $email;
-    //    echo $name;
+        echo $email;
+        echo $password;
 
        //Connect to the database
        require_once('connectdb.php');
