@@ -1,12 +1,13 @@
 <?php
    session_start();
 //    $email = $_SESSION['email'];
-//    $name = $_SESSION['name'];
+//    $password = $_SESSION['password'];
 //    echo $email;
-//    echo $name;
+//    echo $password;
 
    //If they've pressed the book now button, check if they have logged-in
    if(isset($_POST["booked"])){
+
        //If they have not signed in then relocate them to the sign-in page
        if (!isset($_SESSION['email'])){
            //If not then take them to the sign-in page
@@ -15,17 +16,36 @@
        }
        //Get the data from 
        $email = $_SESSION['email'];
+       $eventID = 1;
        $password = $_SESSION['password'];
-       $event = "Indoor Football";
-        echo $email;
-        echo $password;
+       $event = "5-a-side Football Tournament";
+        // echo $email;
+        // echo $password;
 
-       //Connect to the database
+        //Connect to the database
        require_once('connectdb.php');
 
+        // try{
+        //     $stat = $db->prepare('SELECT user_id FROM userdetails WHERE email = ?');
+		// 	$userID = $stat->execute(array($email));
+        //     echo $userID;
+        // }catch (PDOException $ex) {
+        //     echo "Sorry, could not identify your id! <br>";
+        // }
+
+        // try{
+        //     $stat = $db->prepare('SELECT event_id FROM events WHERE name = ?');
+		// 	$eventID = $stat->execute(array($event));
+        //     echo $eventID;
+        // }catch (PDOException $ex) {
+        //     echo "Sorry, could not identify the event! <br>";
+        // }
+
+
+        
        try{
-           $sth=$db->prepare("insert into userinfo values(default,?,?,?)");
-           $sth->execute(array($email, $name, $event));
+           $sth=$db->prepare("insert into bookings values(default,?,?)");
+           $sth->execute(array($email, $eventID));
            header("location:booked.php");
            //echo "Congratulations you have successfully booked this event";
 
@@ -39,6 +59,7 @@
 
       <?php
           }
+          
 
 
    }

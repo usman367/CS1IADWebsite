@@ -24,30 +24,43 @@
 
         require_once("connectdb.php");
 
-        try{
-            $query = "SELECT * FROM userdetails WHERE email = :email AND password = :password";  
-                $statement = $db->prepare($query);  
-                $statement->execute(  
-                     array(  
-                          'email'     =>     $_POST["email"],  
-                          'password'     =>     $_POST["password"]  
-                     )  
-                );  
-                $count = $statement->rowCount();  
-                if($count > 0)  
-                {  
-                    session_start();
-                     $_SESSION["email"] = $_POST["email"];
-                     $_SESSION["password"] = $_POST["password"];  
-                     header("location:index.php");  
-                }  
-                else  
-                {  
-                     $message = '<label>Wrong Data</label>';  
-                }  
-        }catch(PDOException $error) {  
-             $message = $error->getMessage();  
-        }  
+        try {
+            //Query DB to find the matching email and password
+            //using prepare/bindparameter to prevent SQL injection.
+                $stat = $db->prepare('SELECT password FROM userinfo WHERE email_id = ?');
+                $stat->execute(array($_POST['email']));
+                
+                // fetch the result row and check 
+                if ($stat->rowCount()>0){ 
+                    $row=$stat->fetch();
+    
+                    //If the passwords match then start the session
+                    //Using password_verify to check if the users password matches the hashed password in the database
+                    if (password_verify($_POST['password'], $row['password'])){ //matching password
+                        
+                        //??recording the user session variable and go to loggedin page?? 
+                      session_start();
+                        //Set the session to teh username the user ended
+                        $_SESSION["email"]=$_POST['email'];
+                        $_SESSION["password"]=$_POST['password'];
+                        //After they have successfully signed in, relocate them to the home page where they can view the events
+                        header("Location:index.php");
+                        exit();
+                    
+                    } else {
+                     echo "<p>Please try again, the password does not match </p>";
+                     }
+                } else {
+                 //else display an error
+                  echo "<p>Please try again, the email isn't found </p>";
+                //   echo "<p>Haven't registered yet? Click <a href="registered.php">here></a></p>";
+                }
+            }
+            catch(PDOException $ex) {
+                echo("Failed to connect to the database.<br>");
+                // echo($ex->getMessage());
+                exit;
+            }
 
         // session_start();
         //Set the email and name variable for the sessions to the data the user enetered
@@ -78,9 +91,9 @@
     </header>
 
     <main>
-        <section id="signin">
+        <section id="details">
             <h2>Sign-in</h2>
-            <form id="signin" method="post" action="signin.php">
+            <form id="details" method="post" action="signin.php">
             <input type="email" placeholder="Email" name="email" pattern=".+(aston\.ac\.uk)" title="Please enter your aston email address." required/>
             <input type="password" placeholder="Password" name="password" required/>
             <!-- <input type="name" placeholder="Name" name="name" required/> -->
