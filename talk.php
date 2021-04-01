@@ -3,6 +3,7 @@
 
    //If they've pressed the book now button, check if they have logged-in
    if(isset($_POST["booked"])){
+
        //If they have not signed in then relocate them to the sign-in page
        if (!isset($_SESSION['email'])){
            //If not then take them to the sign-in page
@@ -11,16 +12,28 @@
        }
        //Get the data from 
        $email = $_SESSION['email'];
-       $name = $_SESSION['name'];
-       $event = "Talk";
+       $ID = 3;
+       $event = "Live Talk";
 
-       //Connect to the database
+        //Connect to the database
        require_once('connectdb.php');
 
+        // try{
+        //     $stat = $db->prepare('SELECT event_id FROM events WHERE name = ?');
+        //     //echo $stat;
+		// 	$eventID = $stat->execute(array($event));
+        //     echo $eventID;
+        // }catch (PDOException $ex) {
+        //     echo "Sorry, could not identify the event! <br>";
+        // }
+
+
+        
        try{
-           $sth=$db->prepare("insert into userinfo values(default,?,?,?)");
-           $sth->execute(array($email, $name, $event));
+           $sth=$db->prepare("insert into bookings values(default,?,?)");
+           $sth->execute(array($email, $ID));
            header("location:booked.php");
+           //echo "Congratulations you have successfully booked this event";
 
        }catch (PDOException $ex) {
         echo "Sorry, a database error occurred! <br>";
@@ -32,6 +45,9 @@
 
       <?php
           }
+          
+          
+          
 
 
    }

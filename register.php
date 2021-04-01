@@ -17,15 +17,18 @@
         if(empty($email)){
             $emailError = "<p>Please enter your email</p>";
             echo $emailError;
+            exit;
         }//Check if the email enetered matches the required format
         elseif(strpos($email, "@aston.ac.uk") === false){
                 echo "<p>Please enter your Aston Email Adress</p>";
+                exit;
         }
 
         //Check the password and confirm password fields are not empty
         if(empty($password)){
             $passError = "<p>Please enter your password</p>";
             echo $passError;
+            exit;
          }
         //else{
         //     //$password = $_POST['password'];
@@ -37,12 +40,14 @@
         if(empty($password2)){
             $pass2Error = "<p>Please enter your confirmed password</p>";
             echo $pass2Error;
+            exit;
         }
 
         //If they havent entered the email adress then send an appropriate error
         if(empty($_POST["name"])){
             $nameError = "<p>Please enter your name</p>";
             echo $nameError;
+            exit;
          }
          //else{
         //     $name = $_POST["name"];
@@ -80,7 +85,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="userdetails.css"/>
-    <script src="js/password_validation.js"></script>
+    <script src="validatePassword.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -95,8 +100,8 @@
             <h2>Register Now!</h2>
             <form id="details" method="post" action="register.php">
             <input type="email" placeholder="Email" name="email" pattern=".+(aston\.ac\.uk)" title="Please enter your aston email address." required/>
-            <input type="password" placeholder="Password" name="password" required/>
-            <input type="password" placeholder="Confirm Password" name="password2" required/>
+            <input type="password" placeholder="Password" name="password" id="pass1" required/>
+            <input type="password" placeholder="Confirm Password" name="password2" id="pass2" required/>
             <input type="name" placeholder="Name" name="name" required/>
             <!-- <button class="main__btn"><a href="#">Sign-in</a></button> -->
             <input type="submit" value="Register" class="main__btn"/>
