@@ -62,9 +62,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="events.css"/>
+    <link rel="stylesheet" href="talk.css?v=<?php echo time(); ?>"/>
      <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="likeBtn.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -85,6 +86,9 @@
             <p>15th March<p>
             <p>3 pm</p>
             <p>Contact details: brad@aston.ac.uk</p>
+            <div class="likesection">
+                <button id=likebtn onclick="changeColor()"><a>Like</a></button>
+            </div>
         </section>
 
         <section id="extra-info">

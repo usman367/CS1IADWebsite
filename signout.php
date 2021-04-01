@@ -1,8 +1,8 @@
 <?php   
 
-    //If they have pressed the sign-ou button when they were not signed-in, relocate them to the home page
+    //If they have pressed the sign-out button when they were not signed-in, relocate them to the home page
     // if (!isset($_SESSION['email'])){
-    //     header("index.php");  
+    //        header("location:index.php");  
     // }else{
         //Otherwise, delete their session
         session_start();

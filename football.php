@@ -72,9 +72,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="events.css"/>
-     <!-- Add icon library -->
+    <link rel="stylesheet" href="football.css?v=<?php echo time(); ?>"/>
+    <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="likeBtn.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -95,6 +96,9 @@
             <p>5th March<p>
             <p>12 pm</p>
             <p>Contact details: johnsmith@aston.ac.uk</p>
+            <div class="likesection">
+                <button id=likebtn onclick="changeColor()"><a>Like</a></button>
+            </div>
         </section>
 
         <section id="extra-info">
@@ -169,5 +173,11 @@
     <?php
         include("footer.php");
     ?>
+
+    <script>
+        function myFunction(x) {
+            x.classList.toggle("fa-thumbs-down");
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,144 @@
+#start{
+    height: 400px;
+    background-image: url("images/art.jpg");
+    /*Don't repeat the background image more than once (because the images width is not wide enough for the screen)*/
+    background-repeat:no-repeat;
+    /*Set the width to 100% of the screen size*/
+    background-size: 100% 100%;
+    text-align: center;
+    color: white;
+}
+
+#start h3{
+    padding-top: 250px;
+}
+
+main{
+    /* background-color: #4098a3; */
+    background-color: #eee;
+
+}
+
+#event-details{
+    text-align: center;
+    /* background-color: #de641d; */
+    background-color: #283e51;
+    background: linear-gradient(to right,#4b79a1, #283e51);
+    color: white;
+    padding:50px 0 ;
+    font-size: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+
+#extra-info{ 
+    /* background-color: #240053;  */
+    /* background-color: #2c3e50;
+    background: linear-gradient(to right,#2980b9, #2c3e50); */
+    color: black;
+     padding: 50px 0; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#extra-info h2{
+    /* text-align: center; */
+    width: 100%;
+}
+
+.benefit{
+    /* padding-left: 40px; */
+    padding-top: 40px;
+    width: 50%;
+    font-size: 16px;
+    /* text-align: justify; */
+}
+
+#booking {
+    padding:40px 0px;
+    margin-bottom: 30px;
+    /* background-color: #4098a3; */
+     background-color: #2c3e50;
+    background: linear-gradient(to right,#2980b9, #2c3e50);
+    /* background: -webkit-linear-gradient(to right,#4ecdc4, #556270); */
+    color: white;
+    text-align: center;
+    height: 140px;
+  }
+  
+  #booking input {
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  /*Colour gradient chosen from https://uigradients.com/*/
+  .main__btn {
+    font-size: 1.2rem;
+    /*The original colour of the button*/
+    background: #3F5EFB;
+    /*The colour gradient of the button changes from this to the original background colur*/
+    background: -webkit-linear-gradient(to right, #FC466B, #3F5EFB);
+    background: linear-gradient(to right, #FC466B, #3F5EFB);
+    padding: 5px 10px;
+    /*Not adding a radius to the border of the button*/
+    border: none;
+    border-radius: 3px;
+    margin-top: 2px;
+    /* cursor: pointer; */
+    /*Change the colour on the button (it doesn't work on the button without this)*/
+    position: relative;
+    /* transition: all 0.35s; */
+    /* outline: none; */
+  }
+
+  /*So the effects don't affect the buttons text*/
+  .main__btn a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /*For the effects for when the cursor is on the button*/
+  .main__btn:after {
+    position: absolute;
+    content: '';
+    /*So the effects are on the button*/
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    /*The buttons colour is chnaged to the following colour when the cursor is on the button*/
+    background: #4254f5;
+    /*Changes the colouracross the button instead of doing it straight away*/
+    /*Take 0.35 seconds to change the colour across the button*/
+    transition: all 0.35s;
+    border-radius: 4px;
+  }
+  
+  .main__btn:hover {
+    color: #fff;
+  }
+  
+  .main__btn:hover:after {
+    width: 100%;
+  }
+  
+
+.likesection{
+  padding-top: 20px;
+  font-family: sans-serif;
+}
+
+#likebtn{
+  background-color:#eb1010;
+  font-size: 15px;
+  padding:10px 25px ;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
