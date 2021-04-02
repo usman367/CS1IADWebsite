@@ -3,6 +3,45 @@
     session_start();
 
     require_once('connectdb.php');
+
+    if (isset($_POST['insert'])){
+        $topic = $_POST['category'];
+        echo $topic;
+    }
+
+    if($topic == "date"){
+        $alist =  "SELECT * FROM events ORDER BY date ASC";
+        // $results = mysql_num_rows($alist);
+    }else{
+        $alist =  "SELECT * FROM events ORDER BY category";
+        // $results = mysql_num_rows($alist);
+    }
+
+    try{
+        $query="SELECT  * FROM  events ";
+		$rows =  $db->query($alist);
+
+        if ( $rows && $rows->rowCount()> 0) {
+		
+            ?>	
+        <table cellspacing="0"  cellpadding="5">
+          <tr><th align='left'><b>Course_id</b></th>   <th align='left'><b>Course_Name</b></th> <th align='left'><b>Course_NumofStudent</b></th ></tr>
+            <?php
+            // Fetch and  print all  the records.
+                while  ($row =  $rows->fetch())	{
+                    echo  "<tr><td align='left'>" . $row['name'] . "</td>";
+                    echo  "<td align='left'>" . $row['description'] . "</td>";
+                    echo "<td align='left'>". $row['date'] . "</td></tr>\n";
+                }
+                echo  '</table>';
+            }
+            else {
+                echo  "<p>No  course in the list.</p>\n"; //no match found
+            }	
+    }catch (PDOexception $ex){
+		echo "Sorry, a database error occurred! <br>";
+		echo "Error details: <em>". $ex->getMessage()."</em>";
+	}
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +72,16 @@
         <main>
 
             <br><br>
+
+            <form id="form1" action="index.php" name="form1" method="post">
+                <label>Order By:</label>
+                <select name="category" id="form">
+                <option value="-1">--Select a Topic--</option>
+                    <option value="category">Category</option>
+                    <option value="date">Date</option>
+                </select>
+                <input type="submit" name="insert" value="Update">
+            </form>
 
             <section id="sports">
                 <div class="events">
