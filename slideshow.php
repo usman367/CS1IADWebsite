@@ -10,10 +10,20 @@
 </head>
 <body>
 
-    <div class="w3-content w3-section" style="max-width:500px"></div>
-      <img class="mySlides" src="images/indoorFootball.jpg" >
-      <img class="mySlides" src="images/Art.jpg" >
+    <!-- <div class="w3-content w3-section" style="max-width:500px"></div>
+      <img class="mySlides" src="images/indoorFootball.jpg" style="width:100%" >
+      <img class="mySlides" src="images/Art.jpg" style="width:100%">
+      <img class="mySlides" src="images/Talk.jpg" style="width:100%">
+    </div> -->
+
+    <div class="w3-content w3-section" style="max-width:100%;">
+      <img class="mySlides" src="images/indoorFootball.jpg">
+      <img class="mySlides" src="images/Art.jpg">
       <img class="mySlides" src="images/Talk.jpg">
+      <Section id="start">
+      <h2> Find Your Interest </h2>
+      <p> Get Involved into our upcoming Events. </p>
+    </section>
     </div>
 
     <script src="index.js"></script>

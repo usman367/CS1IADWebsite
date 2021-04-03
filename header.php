@@ -23,22 +23,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="mainNav2">
             <!-- Alist for the items on the right -->
                 <ul class="navbar-nav">
+                    <li class="nav-item">
+                         <!--href link for when events is pressed it will take you to the events section-->
+                        <!--"index.php" added before the "#events" to take you to the main page first-->
+                        <a class="nav-link" href="index.php#showEvents">Events</a>
+                    </li>
                      <li class="nav-item">
                         <a class="nav-link" href="register.php">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="signin.php">Sign-in</a>
-                    </li>
-                    <li class="nav-item">
-                        <!--href link for when sports is pressed it will take you to the sports section-->
-                        <!--"index.php" added before the "#sports" to take you to the main page first-->
-                        <a class="nav-link" aria-current="page" href="index.php#sports">Sports</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#culture">Culture</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#others">Others</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="signout.php">Sign Out</a>

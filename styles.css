@@ -1,20 +1,22 @@
 #start{
     height: 400px;
-    /* background-color: #4299f5; */
     background-image: url("images/uni.jpg");
     /*Put all the text in the middle*/
     text-align: center;
     /*The colour of the text*/
     color: white;
-    /* color: lightseagreen; */
+    font-weight: bold;
 }
 
 #start h2 {
-    padding-top: 100px;
+    padding-top: 110px;
+    /*Add a stroke to the h2 tag to make it stand out*/
+    -webkit-text-stroke: 1px black;
 }
 
 #start p{
     padding-top: 20px;
+    -webkit-text-stroke: 0.5px black;
 }
 
 main{
@@ -22,44 +24,39 @@ main{
 }
 
 .events {
-     /* margin-left: 100px; */
-    /*margin-right: 60px; */
-    /* margin: 0px 50px; */
-    /* flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     text-align: center;
     padding: 0px 70px;
     
 }
-
-#sportEvents {
-    /*background-color: lightblue;*/
-    color: black;
-    padding: 60px;
-    text-align: center;
-} 
 
 
 #order{
     text-align: center;
 }
 
-/* footer{
-    background: #444;
-    padding: 30px;
+#orderBtn{
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    padding:5px 10px ;
+    background-color: cadetblue;
+    color: white;
 }
 
-.copy{
-    padding-top: 30px;
-} */
+/*Adding a margin between the cards*/
+.card{
+    margin-bottom: 60px;
+}
 
-.mySlides {
+
+/* .mySlides {
     display:none;
-    width: 80%;
-    height: 400px;
+    width: 100%;
+    min-height: 400px;
+    max-height: 400px;
+    position: relative;
 }
 
-/* .slideshow-container{
+.slideshow-container{
     max-height: 400px;
 } */
