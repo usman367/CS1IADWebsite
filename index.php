@@ -4,6 +4,9 @@
 
     require_once('connectdb.php');
 
+    //Initially the events are ordered by their category
+    $topic = 'category';
+
     if (isset($_POST['insert'])){
         $topic = $_POST['category'];
         echo $topic;
@@ -18,7 +21,7 @@
     }
 
     try{
-        $query="SELECT  * FROM  events ";
+        // $query="SELECT  * FROM  events ";
 		$rows =  $db->query($alist);
 
         if ( $rows && $rows->rowCount()> 0) {
@@ -50,7 +53,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>" />
     <!-- Bootstrap stylesheeet: -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <!--For the slideshow -->
@@ -73,15 +76,103 @@
 
             <br><br>
 
-            <form id="form1" action="index.php" name="form1" method="post">
-                <label>Order By:</label>
-                <select name="category" id="form">
-                <option value="-1">--Select a Topic--</option>
-                    <option value="category">Category</option>
-                    <option value="date">Date</option>
-                </select>
-                <input type="submit" name="insert" value="Update">
-            </form>
+            <div id="order">
+                <form id="form1" action="index.php" name="form1" method="post">
+                    <label>Order By:</label>
+                    <select name="category" id="form">
+                    <!-- <option value="-1">--Select a Topic--</option> -->
+                        <option value="category">Category</option>
+                        <option value="date">Date</option>
+                    </select>
+                    <input type="submit" name="insert" value="Update">
+                </form>
+            </div>
+
+            <?php
+                try{
+                    $rows =  $db->query($alist);
+            
+                    if ( $rows && $rows->rowCount()> 0) {
+                        
+                        ?>	
+                            <section id="sports">
+                                <div class="events">
+                                <div class="row">
+                        <?php
+                        // Fetch and  print all  the records.
+                            while  ($row =  $rows->fetch())	{
+                            ?>
+                        <!-- Always let the cards take up 6 columns, even when the screen size is small (A grid has 12 columns in bootsstrap)-->
+                        <div class="col-sm-6">
+                            <div class="card">
+                            <?php
+                                if($row['name'] == '5-a-side Football Tournament'){
+                                    echo '<img class="card-img-top img-fluid" src="images/indoorFootball3.jpg">';
+                                }else if($row['name'] == 'Art Exhibition'){
+                                    echo '<img class="card-img-top img-fluid" src="images/art.jpg">';
+                                }else{
+                                    echo '<img class="card-img-top img-fluid" src="images/talk.jpg">';
+                                }
+                            echo '<div class="card-block">';
+                                echo  '<h3 class="card-title">' . $row['name'] . '</h3>';
+                                echo  '<p class="card-text">' . $row['description'] . "</p>";
+                                echo "<p>". $row['date'] . "</p>";
+                                //Get the correct link to the event page for each event
+                                if($row['name'] == '5-a-side Football Tournament'){
+                                    echo '<a href="football.php" class="btn btn-primary">More Details</a>';
+                                }else if($row['name'] == 'Art Exhibition'){
+                                    echo '<a href="art.php" class="btn btn-primary">More Details</a>';
+                                }else{
+                                    echo '<a href="talk.php" class="btn btn-primary">More Details</a>';
+                                }
+                                echo  '</div>';
+                            echo '</div>';
+                        echo '</div>';
+
+                        ?>
+
+
+                        <!-- Always let the cards take up 6 columns, even when the screen size is small (A grid has 12 columns in bootsstrap)-->
+                        <div class="col-sm-6">
+                            <div class="card">
+                            <?php
+                                if($row['name'] == '5-a-side Football Tournament'){
+                                    echo '<img class="card-img-top img-fluid" src="images/indoorFootball3.jpg">';
+                                }else if($row['name'] == 'Art Exhibition'){
+                                    echo '<img class="card-img-top img-fluid" src="images/art.jpg">';
+                                }else{
+                                    echo '<img class="card-img-top img-fluid" src="images/talk.jpg">';
+                                }
+                            echo '<div class="card-block">';
+                                echo  '<h3 class="card-title">' . $row['name'] . '</h3>';
+                                echo  '<p class="card-text">' . $row['description'] . "</p>";
+                                echo "<p>". $row['date'] . "</p>";
+                                //Get the correct link to the event page for each event
+                                if($row['name'] == '5-a-side Football Tournament'){
+                                    echo '<a href="football.php" class="btn btn-primary">More Details</a>';
+                                }else if($row['name'] == 'Art Exhibition'){
+                                    echo '<a href="art.php" class="btn btn-primary">More Details</a>';
+                                }else{
+                                    echo '<a href="talk.php" class="btn btn-primary">More Details</a>';
+                                }
+                                echo  '</div>';
+                            echo '</div>';
+                        echo '</div>';
+
+
+                            }
+                            echo  '</div>';
+                            echo '</section>';
+                            echo '</div>';
+                        }
+                        else {
+                            echo  "<p>No  course in the list.</p>\n"; //no match found
+                        }	
+                }catch (PDOexception $ex){
+                    echo "Sorry, a database error occurred! <br>";
+                    echo "Error details: <em>". $ex->getMessage()."</em>";
+                }
+            ?>
 
             <section id="sports">
                 <div class="events">
