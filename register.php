@@ -8,7 +8,6 @@
         
         $email=isset($_POST['email'])?$_POST['email']:false;
         $password=isset($_POST['password'])?password_hash($_POST['password'],PASSWORD_DEFAULT):false;
-        // $password=isset($_POST['password'])?$_POST['password']:false;
         $password2=isset($_POST['password2'])?$_POST['password2']:false;
         $name=isset($_POST['name'])?$_POST['name']:false;
 
@@ -30,12 +29,6 @@
             echo $passError;
             exit;
          }
-        //else{
-        //     //$password = $_POST['password'];
-        //         // $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
-        //         $password = $_POST['password'];
-
-        // }
 
         if(empty($password2)){
             $pass2Error = "<p>Please enter your confirmed password</p>";
@@ -49,16 +42,29 @@
             echo $nameError;
             exit;
          }
-         //else{
-        //     $name = $_POST["name"];
-        // }
 
-        // echo $password;
+         //If the enetered email address is already registered, then alert the user
+         try{
+            $query =  "SELECT email_id FROM userinfo";
+            $rows =  $db->query($query);
+
+            if ( $rows && $rows->rowCount()> 0) {
+                while  ($row =  $rows->fetch())	{
+
+                    if($email == $row['email_id']){
+                        echo "<p>Sorry this email address has already been registered</p> <br>";
+                    }
+                }
+            }
+
+         }catch (PDOexception $ex){
+            echo "Sorry2, a database error occurred! <br>";
+            echo "Please try again!<br>";
+        }
 
 
 
         try{        
-        
             #register user by inserting the user info into the database
             $stat=$db->prepare("insert into userinfo values(?,?,?)");
             $stat->execute(array( $email, $password, $name));
@@ -71,7 +77,6 @@
             //If we were unsuccessful to enter the data into the database, then inform the user
             echo "Sorry, a database error occurred! <br>";
             echo "Please try again!<br>";
-            // echo "Error details: <em>". $ex->getMessage()."</em>";
         }
 
     }
@@ -104,7 +109,6 @@
             <input type="password" placeholder="Password" name="password" id="pass1" required/>
             <input type="password" placeholder="Confirm Password" name="password2" id="pass2" required/>
             <input type="name" placeholder="Name" name="name" required/>
-            <!-- <button class="main__btn"><a href="#">Sign-in</a></button> -->
             <input type="submit" value="Register" class="main__btn"/>
             <input type="hidden" name="submitted" value="true"/>
 

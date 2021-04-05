@@ -24,6 +24,9 @@
             <!-- Alist for the items on the right -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
                          <!--href link for when events is pressed it will take you to the events section-->
                         <!--"index.php" added before the "#events" to take you to the main page first-->
                         <a class="nav-link" href="index.php#showEvents">Events</a>
@@ -42,53 +45,6 @@
         </div>
     </nav>
 
-
-    <!-- <header>
-        <div class="container">
-            <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" href="#">Navbar</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-        </div>
-
-        <nav class="navbar navbar-toggleable-md bg-inverse navbar-inverse">
-        <div class="container">
-            
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="col-auto">
-            <div class="collapse navbar-collapse" id="mainNav">
-                <div class="navbar-nav w-100">
-                    
-                    <a class="nav-item nav-link active" href="#">Home</a>
-                    <a class="nav-item nav-link" href="#">Sports</a>
-                    <a class="nav-item nav-link" href="#">Culture</a>
-                    <a class="nav-item nav-link" href="#">Others</a>
-                </div>
-            </div>
-            </div>
-        </div>
-        </nav>
-    </header> -->
     
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

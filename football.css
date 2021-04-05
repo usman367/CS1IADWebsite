@@ -81,6 +81,7 @@ main{
     margin: 0 auto 10px;
   }
 
+  /*Booking buttons code taken from: https://www.youtube.com/watch?v=3-2Pj5hxwrw&list=PLvxuqxA4YloC3UlYuqL1fx9iGjJmkWlmk&index=3&ab_channel=BrianDesign */
   /*Colour gradient chosen from https://uigradients.com/*/
   .main__btn {
     font-size: 1.2rem;

@@ -1,7 +1,6 @@
 #details {
     padding:40px 0px;
     margin-bottom: 60px;
-    /* background-color: #4098a3; */
     background-color: #556270;
     background: linear-gradient(to right,#4ecdc4, #556270);
     color: white;
@@ -15,7 +14,8 @@
     margin: 0 auto 10px;
   }
 
-  /*Colour gradient chosen from https://uigradients.com/*/
+  /* Booking buttons code taken from: https://www.youtube.com/watch?v=3-2Pj5hxwrw&list=PLvxuqxA4YloC3UlYuqL1fx9iGjJmkWlmk&index=3&ab_channel=BrianDesign */
+  /* Colour gradient chosen from https://uigradients.com/ */
   .main__btn {
     font-size: 1.2rem;
     /*The original colour of the button*/
@@ -28,42 +28,5 @@
     border: none;
     border-radius: 3px;
     margin-top: 2px;
-    /* cursor: pointer; */
-    /*Change the colour on the button (it doesn't work on the button without this)*/
-    position: relative;
-    /* transition: all 0.35s; */
-    /* outline: none; */
   }
 
-  /*So the effects don't affect the buttons text*/
-  .main__btn a {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  /*For the effects for when the cursor is on the button*/
-  .main__btn:after {
-    position: absolute;
-    content: '';
-    /*So the effects are on the button*/
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    /*The buttons colour is chnaged to the following colour when the cursor is on the button*/
-    background: #4254f5;
-    /*Changes the colouracross the button instead of doing it straight away*/
-    /*Take 0.35 seconds to change the colour across the button*/
-    transition: all 0.35s;
-    border-radius: 4px;
-  }
-  
-  .main__btn:hover {
-    color: #fff;
-  }
-  
-  .main__btn:hover:after {
-    width: 100%;
-  }

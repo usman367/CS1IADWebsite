@@ -31,9 +31,9 @@
             header("location:booked.php");
  
         }catch (PDOException $ex) {
-         echo "Sorry, a database error occurred! <br>";
-         echo "Error details: <em>". $ex->getMessage()."</em>";   
-           }
+            echo "Sorry, a database error occurred! <br>";
+            echo "Error details: <em>". $ex->getMessage()."</em>";   
+        }
 
    }
 

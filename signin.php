@@ -55,17 +55,14 @@
                 } else {
                  //else display an error
                   echo "<p>Please try again, the email isn't found </p>";
-                //   echo "<p>Haven't registered yet? Click <a href="registered.php">here></a></p>";
                 }
             }
             catch(PDOException $ex) {
                 echo("Failed to connect to the database.<br>");
-                // echo($ex->getMessage());
                 exit;
             }
 
      }
-
 
 
 ?>
@@ -93,8 +90,6 @@
             <form id="details" method="post" action="signin.php">
             <input type="email" placeholder="Email" name="email" pattern=".+(aston\.ac\.uk)" title="Please enter your aston email address." required/>
             <input type="password" placeholder="Password" name="password" required/>
-            <!-- <input type="name" placeholder="Name" name="name" required/> -->
-            <!-- <button class="main__btn"><a href="#">Sign-in</a></button> -->
             <input type="submit" value="Sign-in" class="main__btn"/>
             <input type="hidden" name="submitted" value="true"/>
 
