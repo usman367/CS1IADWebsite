@@ -1,9 +1,13 @@
 <?php
    session_start();
-//    $email = $_SESSION['email'];
-//    $password = $_SESSION['password'];
-//    echo $email;
-//    echo $password;
+
+   //Connect to the database
+   require_once('connectdb.php');
+
+   //The events ID used to get the data from the database
+   $eventID = 1;
+   //This statement is used later for displaying the event details
+   $query =  "SELECT * FROM events WHERE event_id = $eventID";
 
    //If they've pressed the book now button, check if they have logged-in
    if(isset($_POST["booked"])){
@@ -14,51 +18,22 @@
            header("location:signin.php");  
            exit();
        }
-       //Get the data from 
+
+       //Get the data from the sessions
        $email = $_SESSION['email'];
-       $eventID = 1;
-       $password = $_SESSION['password'];
-       $event = "5-a-side Football Tournament";
         // echo $email;
-        // echo $password;
-
-        //Connect to the database
-       require_once('connectdb.php');
-
-        // try{
-        //     $stat = $db->prepare('SELECT user_id FROM userdetails WHERE email = ?');
-		// 	$userID = $stat->execute(array($email));
-        //     echo $userID;
-        // }catch (PDOException $ex) {
-        //     echo "Sorry, could not identify your id! <br>";
-        // }
-
-        // try{
-        //     $stat = $db->prepare('SELECT event_id FROM events WHERE name = ?');
-		// 	$eventID = $stat->execute(array($event));
-        //     echo $eventID;
-        // }catch (PDOException $ex) {
-        //     echo "Sorry, could not identify the event! <br>";
-        // }
 
 
-        
-       try{
-           $sth=$db->prepare("insert into bookings values(default,?,?)");
-           $sth->execute(array($email, $eventID));
-           header("location:booked.php");
-           //echo "Congratulations you have successfully booked this event";
-
-       }catch (PDOException $ex) {
-        echo "Sorry, a database error occurred! <br>";
-        echo "Error details: <em>". $ex->getMessage()."</em>";   
-           ?>
-
-          <p>Sorry 2, a database error occurred. Please try again.</p>
-          <p>(Error details: <?= $ex->getMessage() ?>)</p>
-
-      <?php
-          }
+        try{
+            //Insert the users data into the database
+            $sth=$db->prepare("insert into bookings values(default,?,?)");
+            $sth->execute(array($email, $eventID));
+            header("location:booked.php");
+ 
+        }catch (PDOException $ex) {
+         echo "Sorry, a database error occurred! <br>";
+         echo "Error details: <em>". $ex->getMessage()."</em>";   
+           }
 
    }
 
@@ -73,10 +48,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="football.css?v=<?php echo time(); ?>"/>
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="likeBtn.js"></script>
-    <title>Document</title>
+    <title>Football</title>
 </head>
 <body>
     <header>
@@ -92,15 +65,40 @@
 
     <main>
         <section id="event-details">
-            <p>Aston Sports Hall</p>
-            <p>5th March<p>
-            <p>12 pm</p>
-            <p>Contact details: johnsmith@aston.ac.uk</p>
+            <?php 
+            //Get the details form the database to be displayed on the event page
+                try{
+                    $details =  $db->query($query);
+        
+                    if ( $details && $details->rowCount()> 0) {
+        
+                        while  ($row =  $details->fetch())	{
+                            $name = $row['name'];
+                            echo "<p> $name </p>";
+                            $place = $row['place'];
+                            echo "<p> $place </p>";
+                            $date = $row['date'];
+                            echo "<p> $date </p>";
+                            $organiser = $row['organiser'];
+                            echo "<p>Contact Details: $organiser </p>";
+                        }
+                    }
+        
+                }catch (PDOException $ex) {
+                    echo "Sorry, a database error occurred! <br>";
+                    echo "Could not find event details! <br>";
+                    echo "Error details: <em>". $ex->getMessage()."</em>";   
+                    
+                }
+             ?>
+
+            <!-- For the like button, if its clicked, it chnages colour-->
             <div class="likesection">
                 <button id=likebtn onclick="changeColor()"><a>Like</a></button>
             </div>
         </section>
 
+        <!-- Displays the additional information the user may need to know for the event-->
         <section id="extra-info">
             <h2>Get involved into Aston's own Football competition!</h2>
             <div class="benefit">
@@ -115,69 +113,21 @@
             </div>
         </section>
 
+        <!-- Creates the booking button that allows the user to book this event-->
         <section id="booking">
             <h2>Book Now with just one click!</h2>
             <form id="booking" method = "post" action="football.php">
                 <button class="main__btn"><a>Book Now</a></button>
 	            <input type="hidden" name="booked" value="true"/>
-
           </form>
         </section>
     </main>
 
     <br>
-
-    <!-- <section id="extra-info">
-            <h2>Get involved into Aston's own Football competition!</h2>
-            <div class="benefit">
-                <h5>More Details</h5>
-                <ul>
-                    <li>Contact details: johnsmith@aston.ac.uk</li>
-                    <li>Venue: Aston Sports hall</li>
-                    <li>Date: 05-05-21</li>
-                    <li>Time: 12pm</li>
-                </ul>
-            </div>
-            <div class="benefit">
-                <h5>What we have on offer for you:</h3>
-                <ul>
-                    <li>Several prizes to win form</li>
-                    <li>Free food and drinks</li>
-                    <li>Lots of mini-games in-between matches</li>
-                </ul>
-            </div>
-        </section>
-        <div id="like-btn">
-            <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-3x"></i>
-        <div> -->
-
-    <!-- <section id="booking">
-        <h2>Book NOW!</h2>
-        <form id="booking">
-        <input type="email"
-           placeholder="Email"
-           name="email"
-           required
-           pattern=".+(\.ac\.uk)"
-           title="Please enter your aston email address."/>
-        <input type="name"
-          placeholder="Name"
-          name="name"
-          required />
-        <input type="submit"
-          value="Book Now" />
-      </form>
-    </section> -->
     
-
     <?php
         include("footer.php");
     ?>
 
-    <script>
-        function myFunction(x) {
-            x.classList.toggle("fa-thumbs-down");
-        }
-    </script>
 </body>
 </html>

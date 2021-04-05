@@ -70,6 +70,7 @@
         catch (PDOexception $ex){
             //If we were unsuccessful to enter the data into the database, then inform the user
             echo "Sorry, a database error occurred! <br>";
+            echo "Please try again!<br>";
             // echo "Error details: <em>". $ex->getMessage()."</em>";
         }
 

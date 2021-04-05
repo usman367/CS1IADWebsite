@@ -1,6 +1,4 @@
 <?php
-    // Creates a PDO object called $db and establishes the MySQL
-    //database connection
 
     $db_host = 'localhost';
     $db_name = 'astonevents';
@@ -18,4 +16,3 @@
         <?php
             }
         ?>
-

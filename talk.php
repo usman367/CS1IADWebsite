@@ -1,6 +1,14 @@
 <?php
    session_start();
 
+   //Connect to the database
+   require_once('connectdb.php');
+
+   //The events ID used to get the data from the database
+   $eventID = 3;
+   //This statement is used later for displaying the event details
+   $query =  "SELECT * FROM events WHERE event_id = $eventID";
+
    //If they've pressed the book now button, check if they have logged-in
    if(isset($_POST["booked"])){
 
@@ -10,50 +18,28 @@
            header("location:signin.php");  
            exit();
        }
-       //Get the data from 
+
+       //Get the data from the sessions
        $email = $_SESSION['email'];
-       $ID = 3;
-       $event = "Live Talk";
-
-        //Connect to the database
-       require_once('connectdb.php');
-
-        // try{
-        //     $stat = $db->prepare('SELECT event_id FROM events WHERE name = ?');
-        //     //echo $stat;
-		// 	$eventID = $stat->execute(array($event));
-        //     echo $eventID;
-        // }catch (PDOException $ex) {
-        //     echo "Sorry, could not identify the event! <br>";
-        // }
+        // echo $email;
 
 
-        
-       try{
-           $sth=$db->prepare("insert into bookings values(default,?,?)");
-           $sth->execute(array($email, $ID));
-           header("location:booked.php");
-           //echo "Congratulations you have successfully booked this event";
-
-       }catch (PDOException $ex) {
-        echo "Sorry, a database error occurred! <br>";
-        echo "Error details: <em>". $ex->getMessage()."</em>";   
-           ?>
-
-          <p>Sorry 2, a database error occurred. Please try again.</p>
-          <p>(Error details: <?= $ex->getMessage() ?>)</p>
-
-      <?php
-          }
-          
-          
-          
-
+        try{
+            //Insert the users data into the database
+            $sth=$db->prepare("insert into bookings values(default,?,?)");
+            $sth->execute(array($email, $eventID));
+            header("location:booked.php");
+ 
+        }catch (PDOException $ex) {
+         echo "Sorry, a database error occurred! <br>";
+         echo "Error details: <em>". $ex->getMessage()."</em>";   
+           }
 
    }
 
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -63,10 +49,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="talk.css?v=<?php echo time(); ?>"/>
-     <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="likeBtn.js"></script>
-    <title>Document</title>
+    <title>Live Talk</title>
 </head>
 <body>
     <header>
@@ -76,28 +60,53 @@
     </header>
 
     <section id="start">
-        <h3>Back in the game</h3>
-        <p>Get ready for kick off</p>
+        <h3>Lorem ipsum dolor sit amet</h3>
+        <p>Ut enim ad minim veniam</p>
     </section>
 
     <main>
-        <section id="event-details">
-            <p>Aston Sports Hall</p>
-            <p>15th March<p>
-            <p>3 pm</p>
-            <p>Contact details: brad@aston.ac.uk</p>
+    <section id="event-details">
+            <?php 
+            //Get the details form the database to be displayed on the event page
+                try{
+                    $details =  $db->query($query);
+        
+                    if ( $details && $details->rowCount()> 0) {
+        
+                        while  ($row =  $details->fetch())	{
+                            $name = $row['name'];
+                            echo "<p> $name </p>";
+                            $place = $row['place'];
+                            echo "<p> $place </p>";
+                            $date = $row['date'];
+                            echo "<p> $date </p>";
+                            $organiser = $row['organiser'];
+                            echo "<p>Contact Details: $organiser </p>";
+                        }
+                    }
+        
+                }catch (PDOException $ex) {
+                    echo "Sorry, a database error occurred! <br>";
+                    echo "Could not find event details! <br>";
+                    echo "Error details: <em>". $ex->getMessage()."</em>";   
+                    
+                }
+             ?>
+
+            <!-- For the like button, if its clicked, it chnages colour-->
             <div class="likesection">
                 <button id=likebtn onclick="changeColor()"><a>Like</a></button>
             </div>
         </section>
 
+        <!-- Displays the additional information the user may need to know for the event-->
         <section id="extra-info">
             <h2>Get involved into Aston's own Football competition!</h2>
             <div class="benefit">
                 <h4>What we have on offer for you:</h4>
-                <p>Several prizes to win form</p>
-                <p>Free food and drinks</p>
-                <p>Lots of mini-games in-between matches</p>
+                <p>Nullam dictum felis eu pede</p>
+                <p>Aenean leo ligula, porttitor eu</p>
+                <p>Aenean imperdiet. Etiam ultricies nisi vel augue</p>
             </div>
             <div class="benefit">
                 <h4>More Details</h4>
@@ -105,12 +114,12 @@
             </div>
         </section>
 
+        <!-- Creates the booking button that allows the user to book this event-->
         <section id="booking">
             <h2>Book Now with just one click!</h2>
             <form id="booking" method = "post" action="talk.php">
                 <button class="main__btn"><a>Book Now</a></button>
 	            <input type="hidden" name="booked" value="true"/>
-
           </form>
         </section>
     </main>

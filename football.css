@@ -11,17 +11,16 @@
 
 #start h3{
     padding-top: 250px;
+    -webkit-text-stroke: 1px black;
 }
 
 main{
-    /* background-color: #4098a3; */
     background-color: #eee;
 
 }
 
 #event-details{
     text-align: center;
-    /* background-color: #de641d; */
     background-color: #283e51;
     background: linear-gradient(to right,#4b79a1, #283e51);
     color: white;
@@ -30,13 +29,24 @@ main{
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
+.likesection{
+  padding-top: 20px;
+  font-family: sans-serif;
+}
+
+#likebtn{
+  background-color:#eb1010;
+  font-size: 15px;
+  padding:10px 25px ;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
 
 #extra-info{ 
-    /* background-color: #240053;  */
-    /* background-color: #2c3e50;
-    background: linear-gradient(to right,#2980b9, #2c3e50); */
     color: black;
-     padding: 50px 0; 
+    padding: 100px 0; 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -46,25 +56,21 @@ main{
 }
 
 #extra-info h2{
-    /* text-align: center; */
     width: 100%;
 }
 
 .benefit{
-    /* padding-left: 40px; */
+    padding-left: 40px;
     padding-top: 40px;
     width: 50%;
     font-size: 16px;
-    /* text-align: justify; */
 }
 
 #booking {
     padding:40px 0px;
     margin-bottom: 30px;
-    /* background-color: #4098a3; */
-     background-color: #2c3e50;
+    background-color: #2c3e50;
     background: linear-gradient(to right,#2980b9, #2c3e50);
-    /* background: -webkit-linear-gradient(to right,#4ecdc4, #556270); */
     color: white;
     text-align: center;
     height: 140px;
@@ -129,19 +135,6 @@ main{
   }
   
 
-.likesection{
-  padding-top: 20px;
-  font-family: sans-serif;
-}
-
-#likebtn{
-  background-color:#eb1010;
-  font-size: 15px;
-  padding:10px 25px ;
-  color: white;
-  border: none;
-  border-radius: 4px;
-}
   
 
 
