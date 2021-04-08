@@ -58,7 +58,7 @@
             }
 
          }catch (PDOexception $ex){
-            echo "Sorry2, a database error occurred! <br>";
+            echo "Sorry, a database error occurred! <br>";
             echo "Please try again!<br>";
         }
 

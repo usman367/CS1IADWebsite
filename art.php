@@ -6,8 +6,6 @@
 
    //The events ID used to get the data from the database
    $eventID = 2;
-   //This statement is used later for displaying the event details
-   $query =  "SELECT * FROM events WHERE event_id = $eventID";
 
    //If they've pressed the book now button, check if they have logged-in
    if(isset($_POST["booked"])){
@@ -24,15 +22,38 @@
         // echo $email;
 
 
+
+        //Firstly, checks if the user has already booked the event
+        //If they haven't booked the event, then it adds their details to the bookings table
         try{
-            //Insert the users data into the database
-            $sth=$db->prepare("insert into bookings values(default,?,?)");
-            $sth->execute(array($email, $eventID));
-            header("location:booked.php");
- 
-        }catch (PDOException $ex) {
+            //Get all the rows where the email and the event id are equal to the users email and this events id
+            $query = "SELECT * FROM bookings WHERE email_id = '$email' AND event_id = '$eventID'";
+            $stat = $db->query($query);
+            $stat->execute();
+
+            $count = $stat->rowCount();
+            //If theres any row selected, it means the user has already booked the event
+            if($count>0){
+                //Therefore, alert the user that have already booked the event
+                echo "<p>You have already booked the event </p>";
+            }else{
+                //Otherwise, if no row was selected, add this booking to the bookings table
+                try{
+                    //Insert the users data into the database
+                    $sth2=$db->prepare("insert into bookings values(default,?,?)");
+                    $sth2->execute(array($email, $eventID));
+                    //Take them to the booked page, to show them an appropriate message
+                    header("location:booked.php");
+         
+                }catch (PDOException $ex) {
+                    echo "Sorry, a database error occurred! <br>";
+                    echo "Error details: <em>". $ex->getMessage()."</em>";   
+                }
+            }
+        }catch (PDOexception $ex){
             echo "Sorry, a database error occurred! <br>";
-            echo "Error details: <em>". $ex->getMessage()."</em>";
+            echo "Could not book the event!<br>";
+            echo "Please try again!<br>";
         }
 
    }
@@ -68,6 +89,9 @@
             <?php 
             //Get the details form the database to be displayed on the event page
                 try{
+                    //This statement is used later for displaying the event details
+                    $query =  "SELECT * FROM events WHERE event_id = $eventID";
+
                     $details =  $db->query($query);
         
                     if ( $details && $details->rowCount()> 0) {

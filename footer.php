@@ -3,16 +3,13 @@
 <head>
     <title>Document</title>
     <!-- Font Awesome -->
+    <!--For the social media icons -->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
   rel="stylesheet"
 />
-<!-- Google Fonts -->
-<link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-  rel="stylesheet"
-/>
 <!-- MDB -->
+<!-- For designing the footer-->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
   rel="stylesheet"
@@ -24,13 +21,14 @@
 
         <div >
             <div class="container">
+                <!--Centers the items and makes sure they both are aligned in the same way when the screen size is changed(py-4)-->
                 <div class="row py-4 d-flex align-items-center">
-
+                    <!--For a medium sized screen always take up the 12 grids-->
                     <div class="col-md-12 text-center">
                         <a href="https://www.facebook.com/astonuniversity/"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://twitter.com/AstonUniversity?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.linkedin.com/school/aston-university/"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/astonuniversity/?hl=en"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -62,24 +60,16 @@
                 <hr class="bg-success mb-4 mt-0 d-inline-block mx-auto" style="width: 85px; height: 2px">
 
                 <ul class="list-unstyled">
-                    <li class="my-2"><a href="#">gvvg</a></li>
-                    <li class="my-2"><a href="#">gvvg</a></li>
-                    <li class="my-2"><a href="#">gvvg</a></li>
+                    <li class="my-2"><a href="https://www.aston.ac.uk/">University</a></li>
+                    <li class="my-2"><a href="#">Lorem</a></li>
+                    <li class="my-2"><a href="#">Ipsum</a></li>
                 </ul>
             </div>
 
             </div>
         </div>
 
-
-
         </footer>
 
-
-<!-- MDB -->
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
-></script>
 </body>
 </html>

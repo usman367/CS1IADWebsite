@@ -43,7 +43,6 @@
                       
                         //Set the session to the username the user ended
                         $_SESSION["email"]=$_POST['email'];
-                        $_SESSION["password"]=$_POST['password'];
 
                         //After they have successfully signed in, relocate them to the home page where they can view the events
                         header("Location:index.php");
