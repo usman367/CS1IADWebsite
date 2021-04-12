@@ -8,19 +8,18 @@
     <title>Document</title>
 </head>
 <body>
-
     <?php
         include("header.php");
     ?>
 
     <main>
-        <h2 class="message">Congratulations, you have signed up!</h2>
-        <p class="message">You can sign-in now from here <a href="signin.php">Sign-in</a></p>
+        <h2 class="message">Thank You for registering your interest in the event!</h2>
+        <p class="message">You can view the other events from here <a href="index.php#showEvents">Events</a></p>
     </main>
-    
+
+
     <?php
         include("footer.php");
     ?>
-    
 </body>
 </html>

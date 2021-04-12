@@ -54,7 +54,7 @@
                 <form id="form1" action="index.php" name="form1" method="post">
                     <!-- <label>Order By:</label> -->
                     <select name="category" id="form">
-                    <option value="-1">--Order By--</option>
+                        <option value="-1">--Order By--</option>
                         <option value="category">Category</option>
                         <option value="date">Date</option>
                     </select>

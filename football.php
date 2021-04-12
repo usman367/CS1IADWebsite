@@ -6,6 +6,48 @@
 
    //The events ID used to get the data from the database
    $eventID = 1;
+   
+
+    if(isset($_SESSION['email'])){
+    //Get the data from the sessions
+        $email = $_SESSION['email'];
+        //If the user ries to like the event
+        if(isset($_POST["likebtn"])){
+
+            try{
+                //Get all the rows where the email and the event id are equal to the users email and this events id
+                $query = "SELECT * FROM likes WHERE email_id = '$email' AND event_id = '$eventID'";
+                $stat = $db->query($query);
+                $stat->execute();
+    
+                $count = $stat->rowCount();
+                //If theres any row selected, it means the user has already liked the event
+                if($count>0){
+                    //Therefore, alert the user that have already liked the event
+                    echo "<p>You have already liked the event </p>";
+                }else{
+                    try{
+                        //Insert the users data into the database
+                        $sth2=$db->prepare("insert into likes values(default,?,?)");
+                        $sth2->execute(array($email, $eventID));
+
+                        //Take them to the liked page, to show them an appropriate message
+                        header("location:liked.php");  
+                    }catch (PDOException $ex) {
+                        echo "Sorry, a database error occurred! <br>";
+                        echo "Error details: <em>". $ex->getMessage()."</em>";   
+                    }
+                }
+            }catch (PDOexception $ex){
+                echo "Sorry, a database error occurred! <br>";
+                echo "Could not book the event!<br>";
+                echo "Please try again!<br>";
+            }
+        }
+    }else{
+        echo "<p> Please remember to sign-in! <br>";
+    }
+
 
    //If they've pressed the book now button, check if they have logged-in
    if(isset($_POST["booked"])){
@@ -119,7 +161,9 @@
 
             <!-- For the like button, if its clicked, it chnages colour-->
             <div class="likesection">
-                <button id=likebtn onclick="changeColor()"><a>Like</a></button>
+                <form method = "post" action="football.php">
+                    <button id=likebtn  name="likebtn" onclick="changeColor()">Like</button>
+                </form>
             </div>
         </section>
 
