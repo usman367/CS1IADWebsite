@@ -38,6 +38,9 @@
                         <a class="nav-link" href="signin.php">Sign-in</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="bookings.php">My bookings</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="signout.php">Sign Out</a>
                     </li>
                 </ul>
