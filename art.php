@@ -8,6 +8,14 @@
    $eventID = 2;
 
 
+   //Get the total number of likes for this event
+   $query = "SELECT * FROM likes WHERE event_id = '$eventID'";
+   $stat = $db->query($query);
+   $stat->execute();
+
+   $totalLikes = $stat->rowCount();  
+
+
    if(isset($_SESSION['email'])){
     //Get the data from the sessions
         $email = $_SESSION['email'];
@@ -84,6 +92,10 @@
                     //Insert the users data into the database
                     $sth2=$db->prepare("insert into bookings values(default,?,?)");
                     $sth2->execute(array($email, $eventID));
+
+                     //Store booking id in a session variable, so it can be displayed on the booked.php page
+                     $_SESSION['bookingID'] = $db->lastInsertId();
+                     
                     //Take them to the booked page, to show them an appropriate message
                     header("location:booked.php");
          
@@ -112,6 +124,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="art.css?v=<?php echo time(); ?>"/>
     <script src="likeBtn.js"></script>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Art</title>
 </head>
 <body>
@@ -161,7 +175,7 @@
             <!-- For the like button, if its clicked, it chnages colour-->
             <div class="likesection">
                 <form method = "post" action="art.php">
-                    <button id=likebtn name="likebtn" onclick="changeColor()"><a>Like</a></button>
+                    <button id=likebtn  name="likebtn" onclick="changeColor()" class="fa fa-thumbs-up"><?php echo " " . $totalLikes; ?></button>
                 </form>
             </div>
         </section>

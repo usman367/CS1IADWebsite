@@ -14,7 +14,7 @@
     ?>
 
     <main>
-        <h2 class="message">Congratulations, you have signed up!</h2>
+        <h2 class="message">Congratulations, you have successfully registered!</h2>
         <p class="message">You can sign-in now from here <a href="signin.php">Sign-in</a></p>
     </main>
     

@@ -92,7 +92,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="userdetails.css"/>
     <script src="validatePassword.js"></script>
-    <title>Document</title>
+    <title>Register</title>
 </head>
 <body>
     <header>
