@@ -182,7 +182,7 @@
 
         <!-- Displays the additional information the user may need to know for the event-->
         <section id="extra-info">
-            <h2>Get involved into Aston's own Football competition!</h2>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit!</h2>
             <div class="benefit1">
                 <h4 id="benefit1-heading">What we have on offer for you:</h4>
                 <p>Nullam dictum felis eu pede</p>
