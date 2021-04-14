@@ -44,26 +44,68 @@ border-radius: 4px;
 }
 
 
-#extra-info{ 
-  color: black;
-   padding: 100px 0; 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 800px;
-  margin: 0 auto;
-  text-align: center;
+/*For larger screens*/
+@media screen and (max-width: 1400px){
+  #extra-info{ 
+    color: black;
+    padding: 100px 0; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #extra-info h2{
+      width: 100%;
+  }
+
+  #benefit1-heading{
+    width: 1200px;
+    width: 100%;
+  }
+
+  .benefit1, .benefit2{
+      padding-left: 40px;
+      padding-top: 40px;
+      width: 50%;
+      font-size: 16px;
+  }
 }
 
-#extra-info h2{
-  width: 100%;
-}
+/*For tablets/iPads and mobile phones*/
+@media screen and (max-width: 768px){
 
-.benefit{
-  padding-left: 40px;
-  padding-top: 40px;
-  width: 50%;
-  font-size: 16px;
+  #extra-info{
+    text-align: center;
+    padding: 80px 0; 
+    max-width: 600px;
+    width: 400px;
+    /*Overrides the display flex properts for 1400px screen size*/
+    display: initial;
+  }
+
+  #extra-info h2{
+    width: 100%;
+    max-width: 600px;
+    padding-top: 50px;
+  }
+
+  .benefit1, .benefit2{
+    padding-top: 50px;
+    width: 100%;
+  }
+
+  .benefit2-info{
+    margin: auto;
+    width: 100%;
+  }
+
+  #benefit2-info{
+    padding-bottom: 50px;
+  }
+
 }
 
 #booking {
