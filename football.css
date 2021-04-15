@@ -45,7 +45,7 @@ main{
 
 
 /*For larger screens*/
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 1500px){
   #extra-info{ 
     color: black;
     padding: 100px 0; 
