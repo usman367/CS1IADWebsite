@@ -123,7 +123,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="football.css?v=<?php echo time(); ?>"/>
+    <link rel="stylesheet" href="events.css?v=<?php echo time(); ?>"/>
     <script src="likeBtn.js"></script>
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -136,7 +136,7 @@
         ?>
     </header>
 
-    <section id="start">
+    <section id="start" style="background-image: url('images/indoorFootball.jpg');">
         <h3>Back in the game</h3>
         <p>Get ready for kick off</p>
     </section>
@@ -162,6 +162,10 @@
                             echo "<p> $date </p>";
                             $organiser = $row['organiser'];
                             echo "<p>Contact Details: $organiser </p>";
+
+                            //These two will be displayed in the "extra_info" section
+                            $description = $row['description'];
+                            $extra_info = $row['extra_info'];
                         }
                     }
         
@@ -185,14 +189,12 @@
         <section id="extra-info">
             <h2>Get involved into Aston's own Football competition!</h2>
             <div class="benefit1">
-                <h4 id="benefit1-heading">What we have on offer for you:</h4>
-                <p>Several prizes to win form</p>
-                <p>Free food and drinks</p>
-                <p>Lots of mini-games in-between matches</p>
+                <h4 class="benefit1-info">More Details</h4>
+                <p class="benefit1-info" id="benefit1-info"> <?php echo $description; ?> </p>
             </div>
             <div class="benefit2">
-                <h4 class="benefit2-info">More Details</h4>
-                <p class="benefit2-info" id="benefit2-info">Please bring your own Astro Turf trainers and appropriate kit to wear. Refreshments will be available on-site.</p>
+                <h4 id="benefit2-heading">Additional Information</h4>
+                <?php echo $extra_info; ?>
             </div>
         </section>
 

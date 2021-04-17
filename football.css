@@ -1,6 +1,6 @@
 #start{
     height: 400px;
-    background-image: url("images/indoorFootball.jpg");
+    background-image: url('images/indoorFootball.jpg');
     /*Don't repeat the background image more than once (because the images width is not wide enough for the screen)*/
     background-repeat:no-repeat;
     /*Set the width to 100% of the screen size*/
