@@ -17,10 +17,10 @@
         <div class="container">
             <a class="navbar-brand" href="index.php">Aston Events</a>
             <!-- For smaller screens, make a menu bar-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav2" >
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" >
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="mainNav2">
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
             <!-- Alist for the items on the right -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -31,18 +31,27 @@
                         <!--"index.php" added before the "#events" to take you to the main page first-->
                         <a class="nav-link" href="index.php#showEvents">Events</a>
                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="register.php">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signin.php">Sign-in</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="bookings.php">My bookings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signout.php">Sign Out</a>
-                    </li>
+
+                    <?php
+                        //If the user has not signed in, then display the "Register" and "Sign-in" options
+                        if(!isset($_SESSION['email'])){
+                            echo '<li class="nav-item">';
+                            echo '<a class="nav-link" href="register.php">Register</a>';
+                            echo '</li>';
+                            echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="signin.php">Sign-in</a>';
+                            echo '</li>';
+                        }
+                        //If the user has already signed in, then display the "My Bookings" and the "Sign Out" options
+                        if(isset($_SESSION['email'])){
+                            echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="bookings.php">My bookings</a>';
+                            echo '</li>';
+                            echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="signout.php">Sign Out</a>';
+                            echo '</li>';
+                        }
+                    ?>
                 </ul>
             </div>
         </div>
