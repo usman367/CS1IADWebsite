@@ -79,7 +79,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="userdetails.css"/>
+    <link rel="stylesheet" href="userdetails.css?v=<?php echo time(); ?>"/>
     <title>Sign-in</title>
 </head>
 <body>
@@ -97,7 +97,9 @@
             <input type="password" placeholder="Password" name="password" required/>
             <input type="submit" value="Sign-in" class="main__btn"/>
             <input type="hidden" name="submitted" value="true"/>
+            <br/>
 
+            <a href="register.php" style="color: white";>Haven't registered yet? Click here to register now!</a>
           </form>
         </section>
     </main>

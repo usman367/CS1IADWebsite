@@ -90,7 +90,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="userdetails.css"/>
+    <link rel="stylesheet" href="userdetails.css?v=<?php echo time(); ?>"/>
     <script src="validatePassword.js"></script>
     <title>Register</title>
 </head>
@@ -112,6 +112,7 @@
             <input type="submit" value="Register" class="main__btn"/>
             <input type="hidden" name="submitted" value="true"/>
 
+            <a href="signin.php" style="color: white";>Already registered? Click here to sign-in!</a>
           </form>
         </section>
     </main>
