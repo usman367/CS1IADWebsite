@@ -92,7 +92,6 @@
                         <div class="col-sm-6">
                             <div class="card">
                             <?php
-                                //Get the events image based on whate event it is
                                 if($row['name'] == '5-a-side Football Tournament'){
                                     //"card-img-top img-fluid" puts the image at the top of the card and make sure it takes up all the available space
                                     echo '<img class="card-img-top img-fluid" src="images/indoorFootball3.jpg">';

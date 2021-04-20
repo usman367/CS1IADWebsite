@@ -49,11 +49,17 @@
                         exit();
                     
                     } else {
-                     echo "<p>Please try again, the password does not match </p>";
+                        //Using boostrap to alert the user that their passowrd does notmatch their email address
+                        echo '<div class="alert alert-danger" role="alert">';
+                             echo 'Please try again, the password does not match!';
+                        echo '</div>';
                      }
                 } else {
                  //else display an error
-                  echo "<p>Please try again, the email isn't found </p>";
+                 //using bootstrap
+                echo '<div class="alert alert-danger" role="alert">';
+                    echo "Please try again, the email isn't found!";
+                echo '</div>';
                 }
             }
             catch(PDOException $ex) {
