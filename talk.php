@@ -32,7 +32,10 @@
                 //If theres any row selected, it means the user has already liked the event
                 if($count>0){
                     //Therefore, alert the user that have already liked the event
-                    echo "<p>You have already liked the event </p>";
+                     //Using Bootstrap alerts
+                     echo '<div class="alert alert-danger" role="alert">';
+                        echo "You have already liked the event!";
+                    echo '</div>';
                 }else{
                     try{
                         //Insert the users data into the database
@@ -53,7 +56,10 @@
             }
         }
     }else{
-        echo "<p> Please remember to sign-in! <br>";
+        //Using Bootstrap alerts
+        echo '<div class="alert alert-danger" role="alert">';
+            echo "Please remember to sign-in!";
+        echo '</div>';
     }
 
 
@@ -85,7 +91,10 @@
             //If theres any row selected, it means the user has already booked the event
             if($count>0){
                 //Therefore, alert the user that have already booked the event
-                echo "<p>You have already booked the event </p>";
+                //Using Bootstrap alerts
+                echo '<div class="alert alert-danger" role="alert">';
+                    echo "You have already booked the event!";
+                echo '</div>';
             }else{
                 //Otherwise, if no row was selected, add this booking to the bookings table
                 try{

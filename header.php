@@ -8,12 +8,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <title>Document</title>
 </head>
+<style>
+/* change the background color */
+.navbar {
+    background-color: #240053;
+}
+</style>
 <body>
 
-    <!-- navbar -->
     <!-- "navbar-toggler" means it will be a drop down toggleable navbar -->
     <!-- "navbar-inverse" to change the colour of the links-->
-    <nav class="navbar navbar-expand-lg navbar-inverse bg-info">
+    <!--"fixed-top" added to make the navbar stick to the top even when you're scrolling down-->
+    <nav class="navbar navbar-expand-lg navbar-inverse ">
         <div class="container">
             <a class="navbar-brand" href="index.php">Aston Events</a>
             <!-- For smaller screens, make a menu bar-->
